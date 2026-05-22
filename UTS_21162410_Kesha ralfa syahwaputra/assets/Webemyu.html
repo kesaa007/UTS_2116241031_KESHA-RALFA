@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIZO MAN UNITED OFFICIAL STORE</title>
+    <link rel="stylesheet" href="Stylewebemyu1.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="brand-logo">
+            <span class="logo-text">KAIZO OFFICIAL MAN UNITED STORE 🔴😈</span>
+        </div>
+        <nav class="navigation-bar">
+            <a href="#home">HOME</a>
+            <a href="#shop">STORE</a>
+            <a href="#cart">CART</a>
+            <a href="#checkout">CHECKOUT</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-banner">
+            <div class="hero-overlay">
+                <h1>🔴RED DEVIL FANS CENTER🔴</h1>
+                <p>Get Your Official Jersey here, Exclusive Merchandise, and Matchday Ticket Live At Old Trafford!</p>
+                <p class="service-info">Available Service: <strong>Matchday Pickup</strong> (Pickup at Old Trafford) & <strong>Global Delivery</strong> (Send To your Address)</p>
+            </div>
+        </section>
+
+        <section id="shop" class="store-section">
+            <h2>Official Man United List</h2>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterProduk('semua')">All Products</button>
+                <button class="filter-btn" onclick="filterProduk('kit')">Jerseys & Kits</button>
+                <button class="filter-btn" onclick="filterProduk('merch')">Merchandise</button>
+                <button class="filter-btn" onclick="filterProduk('tiket')">Match Tickets</button>
+            </div>
+
+            <div class="products-grid" id="products-container">
+                </div>
+        </section>
+
+        <section id="cart" class="cart-section">
+            <h2>Your Shopping Cart</h2>
+            <div class="table-responsive">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Item Details</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items-container">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="cart-summary-box">
+                <div class="summary-row"><span>Subtotal:</span> <span id="text-subtotal">Rp 0</span></div>
+                <div class="summary-row"><span>Club Handling Fee:</span> <span id="text-layanan">Rp 0</span></div>
+                <div class="summary-row"><span>Shipping / Courier:</span> <span id="text-ongkir">Rp 0</span></div>
+                <div class="summary-row total-row"><span>Grand Total:</span> <span id="text-total">Rp 0</span></div>
+            </div>
+        </section>
+
+        <section id="checkout" class="checkout-section">
+            <h2>Secure Checkout</h2>
+            <form id="order-form" onsubmit="handleCheckout(event)">
+                <div class="form-group">
+                    <label for="buyer-name">Full Name (Base ID/Passport):</label>
+                    <input type="text" id="buyer-name" required placeholder="ENTER YOUR FULL NAME">
+                </div>
+
+                <div class="form-group">
+                    <label for="buyer-phone">Phone Number:</label>
+                    <input type="tel" id="buyer-phone" required placeholder="EXAMPLE +628123456789">
+                </div>
+
+                <div class="form-group">
+                    <label for="shipping-method">Fulfillment Method:</label>
+                    <select id="shipping-method" onchange="calculateShippingCosts()" required>
+                        <option value="pickup">Matchday Pickup (TAKE AT OLD TRAFFORD - IDR 0)</option>
+                        <option value="delivery">Global Delivery (SEND TO YOUR ADDRESS - IDR 45.000)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="buyer-address">Delivery Address (BLANK THE FIELD IF YOU CHOOSE PICKUP):</label>
+                    <textarea id="buyer-address" rows="3" placeholder="Write the complete home address if choosing the Global Delivery option"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment-method">Payment Gateway:</label>
+                    <select id="payment-method" required>
+                        <option value="qris">QRIS / Instant E-Wallet</option>
+                        <option value="cash">Cash On Delivery / Cash at Store Counter</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="order-notes">Order Notes / Custom Name & Number Jersey:</label>
+                    <textarea id="order-notes" rows="2" placeholder=" Example: Jersey size L, Custom name: Bruno Fernandes, Number: 8"></textarea>
+                </div>
+
+                <button type="submit" class="submit-order-btn">Confirm & Process Order</button>
+            </form>
+        </section>
+
+        <section id="invoice-modal" class="invoice-overlay hidden">
+            <div class="invoice-card">
+                <div class="invoice-header">
+                    <h3>🔴 KAIZO OFFICIAL MAN UNITED STORE 🔴</h3>
+                    <p>Old Trafford, Manchester, UK</p>
+                    <p class="divider">=================================</p>
+                </div>
+                <div id="invoice-details"></div>
+                <div id="invoice-details"></div>
+
+<div id="qris-wrapper" class="hidden" style="text-align: center; margin: 15px 0;">
+    <p style="font-weight: bold; font-size: 0.85rem; margin-bottom: 5px; color: white;">🔴 SCAN TO PAY WITH QRIS 🔴</p>
+    <div id="qris-image-container"></div>
+</div>
+<div class="invoice-footer">
+                <div id="invoice-details"></div>
+                
+                <div id="qris-wrapper" class="hidden" style="text-align: center; margin: 15px 0;">
+                    <p style="font-weight: bold; font-size: 0.85rem; margin-bottom: 5px;">🔴 SCAN TO PAY WITH QRIS 🔴</p>
+                    <div id="qris-image-container"></div>
+                </div>
+                <div class="invoice-footer">
+                    <p class="divider">=================================</p>
+                    <p class="glory-text">🔴 GLORY GLORY MAN UNITED! 🔴</p>
+                    <button class="close-invoice-btn" onclick="clearAndResetStore()">Done & New Order</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="custom-alert-modal" class="alert-popup-overlay alert-popup-hidden">
+            <div class="alert-popup-box">
+                <div class="alert-popup-icon">✓</div>
+                <h3 class="alert-popup-title">Succesfully Added To Cart</h3>
+            </div>
+        </div>
+
+    <footer class="main-footer">
+        <p>&copy; KAIZO MAN UNITED FAN STORE. All Rights Reserved.</p>
+    </footer>
+<script src="javascriptemyu.js"></script>
+</body>
+</html>
+<div id="custom-delete-modal" class="alert-popup-overlay alert-popup-hidden">
+            <div class="alert-popup-box delete-box-border">
+                <div class="alert-popup-icon delete-icon-color">✕</div>
+                <h3 class="alert-popup-title">Item Succesfully Removed</h3>
+            </div>
+        </div>
+<div id="order-success-modal" class="alert-popup-overlay alert-popup-hidden">
+            <div class="alert-popup-box final-success-box">
+                <div class="alert-popup-icon final-success-icon">✓</div>
+                <h3 class="final-success-title">YOUR ORDER HAVE BEEN RECEIVE AND WILL BE ON PROCESS, THANKS FOR YOUR ORDER🔴</h3>
+            </div>
+        </div>
+        <div id="empty-cart-warning-modal" class="alert-popup-overlay alert-popup-hidden">
+            <div class="alert-popup-box warning-box-border">
+                <div class="alert-popup-icon warning-icon-color">⚠️</div>
+                <h3 class="warning-title">Your shopping cart is empty! Please add some jersey, merchandise or tickets first.</h3>
+            </div>
+        </div>

@@ -1,0 +1,418 @@
+/* --- Core Brand Colors & Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0c0c0c;
+    color: #e5e5e5;
+    line-height: 1.6;
+}
+
+/* --- Layout Header --- */
+.main-header {
+    background-color: #111111;
+    border-bottom: 3px solid #B30112;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand-logo .logo-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.navigation-bar a {
+    color: #aaaaaa;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navigation-bar a:hover {
+    color: #B30112;
+}
+
+/* --- Hero Banner Section --- */
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
+                url('background_emyu.jfif') no-repeat center/cover;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-banner h1 {
+    font-size: 2.8rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(179, 1, 18, 0.5);
+}
+
+.hero-banner p {
+    font-size: 1.1rem;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto 15px;
+}
+
+.service-info {
+    font-size: 0.95rem !important;
+    background-color: rgba(179, 1, 18, 0.2);
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #B30112;
+}
+
+/* --- Store & Catalog Filter --- */
+.store-section, .cart-section, .checkout-section {
+    padding: 60px 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    border-left: 5px solid #B30112;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 10px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: #B30112;
+    border-color: #B30112;
+}
+
+/* --- Products Responsive Grid --- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background-color: #141414;
+    border: 1px solid #222222;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: #B30112;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+}
+
+.product-card h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 15px 0 8px;
+}
+
+.product-price {
+    color: #ff4d4d;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    background-color: #B30112;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #80000c;
+}
+
+/* --- Cart Table Style --- */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #141414;
+    margin-top: 15px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 14px;
+    border: 1px solid #222222;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.qty-btn {
+    background-color: #2a2a2a;
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cart-summary-box {
+    margin-top: 25px;
+    background-color: #141414;
+    padding: 20px;
+    border-radius: 6px;
+    max-width: 400px;
+    margin-left: auto;
+    border-right: 4px solid #B30112;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total-row {
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* --- Form Control Styling --- */
+#order-form {
+    background-color: #141414;
+    padding: 30px;
+    border-radius: 6px;
+    border: 1px solid #222222;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #aaaaaa;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #B30112;
+}
+
+.submit-order-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.submit-order-btn:hover {
+    background-color: #1e7e34;
+}
+
+/* --- Pop-up Invoice --- */
+.invoice-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+}
+
+.invoice-card {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.invoice-header { text-align: center; margin-bottom: 15px;}
+.glory-text { font-weight: bold; text-align: center; margin: 15px 0;}
+.close-invoice-btn {
+    background-color: #000000; color: white; border: none;
+    padding: 10px; width: 100%; font-weight: bold; cursor: pointer;
+}
+
+.hidden { display: none !important; }
+
+.main-footer {
+    background-color: #111111;
+    text-align: center;
+    padding: 25px;
+    color: #666666;
+    font-size: 0.85rem;
+    border-top: 1px solid #222222;
+}
+/* --- Gaya Pop-up Custom Sukses Belanja --- */
+        .alert-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Efek latar belakang agak gelap */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000; /* Supaya tampil di paling depan layar */
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .alert-popup-box {
+            background-color: #1c1c1c; /* Warna hitam gelap megastore */
+            border: 2px solid #B30112; /* Bingkai merah khas MU */
+            padding: 30px 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .alert-popup-icon {
+            font-size: 3rem;
+            color: #28a745; /* Warna hijau ceklis sukses */
+            background-color: rgba(40, 167, 69, 0.1);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        .alert-popup-title {
+            color: #ffffff !important;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Class untuk menyembunyikan pop-up */
+        .alert-popup-hidden {
+            display: none !important;
+            opacity: 0;
+        }
+
+        /* Animasi muncul membal (bounce) */
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        /* --- Variasi Warna Khusus Pop-up Hapus --- */
+.delete-box-border {
+    border-color: #B30112 !important; /* Bingkai Merah MU */
+}
+
+.delete-icon-color {
+    color: #dc3545 !important; /* Warna Simbol Silang Merah */
+    background-color: rgba(220, 53, 69, 0.1) !important;
+}
+/* --- Variasi Warna Khusus Pop-up Peringatan Keranjang Kosong --- */
+.warning-box-border {
+    border-color: #ffc107 !important; /* Warna Kuning Peringatan */
+    max-width: 450px !important;
+    padding: 35px 25px !important;
+}
+
+.warning-icon-color {
+    color: #ffc107 !important; /* Warna Simbol Tanda Seru Kuning */
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    font-size: 3rem !important;
+}
+
+.warning-title {
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    line-height: 1.4;
+    margin: 0;
+}
